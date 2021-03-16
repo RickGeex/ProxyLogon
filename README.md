@@ -6,12 +6,15 @@ ProxyLogon is the formally generic name for CVE-2021-26855, a vulnerability on M
 The information provided on this Github repository is for educational purposes only. All information on this Github is provided in good faith, however I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information.
 
 ## Getting Started
+### Requirements
+- This script requires the use of Python3 and the urllib library
 
-If you want to test the vulnerability do so on your systems only
+If you want to test the vulnerability do so on your (non production) systems only
 
 ```python
 python ProxyLogon.py <hostname> <email>
 ```
+
 
 ## Screenshot
 ![ProxyLogon](https://raw.githubusercontent.com/RickGeex/ProxyLogon/main/proxylogon_screenshot.png)
@@ -33,9 +36,12 @@ The following security updates are available for the following Microsoft Exchang
 
 Source: https://www.ncsc.nl/actueel/nieuws/2021/maart/5/update-microsoft-exchange-server
 
-#### Other resources
+#### Other resources (scanners, iocs)
 - https://www.microsoft.com/security/blog/2021/03/02/hafnium-targeting-exchange-servers/
-- https://github.com/microsoft/CSS-Exchange/blob/main/Security/Defender-MSERT-Guidance.md
+- https://github.com/microsoft/CSS-Exchange/tree/main/Security
 - https://www.fireeye.com/blog/threat-research/2021/03/detection-response-to-exploitation-of-microsoft-exchange-zero-day-vulnerabilities.html
 - https://us-cert.cisa.gov/ncas/alerts/aa21-062a
 - https://news.sophos.com/en-us/2021/03/05/hafnium-advice-about-the-new-nation-state-attack/
+- https://github.com/Neo23x0/signature-base/blob/master/yara/apt_hafnium_log_sigs.yar
+
+
